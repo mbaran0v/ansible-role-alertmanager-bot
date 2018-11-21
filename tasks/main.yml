@@ -1,0 +1,9 @@
+---
+
+- include: install.yml
+
+- name: ensure alertmanager_bot service is started and enabled
+  systemd:
+    name: alertmanager_bot
+    state: started
+    enabled: true

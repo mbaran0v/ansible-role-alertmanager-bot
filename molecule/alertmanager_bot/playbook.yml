@@ -1,0 +1,11 @@
+---
+
+- name: Converge
+  hosts: all
+  connection: local
+
+  vars_files:
+    - ../resources/vars/alertmanager-bot-common.yaml
+
+  roles:
+    - role: ansible-role-alertmanager-bot
