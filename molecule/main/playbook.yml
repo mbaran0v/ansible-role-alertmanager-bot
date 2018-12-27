@@ -5,7 +5,7 @@
   connection: local
 
   vars_files:
-    - ../resources/vars/alertmanager-bot-common.yaml
+    - ../resources/vars/main.yaml
 
   roles:
     - role: ansible-role-alertmanager-bot

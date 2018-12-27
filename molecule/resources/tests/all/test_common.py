@@ -7,21 +7,42 @@ def test_distribution(host):
     assert host.system_info.distribution.lower() in debian_os + rhel_os
 
 
-def test_binary(host):
-    f = host.file('/opt/alertmanager_bot/current/alertmanager_bot')
+def test_install_dir(host):
+    f = host.file('/opt/alertmanager_bot')
 
     assert f.exists
+    assert f.is_directory
 
 
-def test_socket(host):
-    s = host.socket('tcp://127.0.0.1:8080')
-    print(host.socket.get_listening_sockets())
+def test_release_dir(host):
+    f = host.file('/opt/alertmanager_bot/releases/0.3.1')
 
-    assert s.is_listening
+    assert f.exists
+    assert f.is_directory
 
 
-def test_serice(host):
+def test_release_symlink_dir(host):
+    f = host.file('/opt/alertmanager_bot/current')
+
+    assert f.exists
+    assert f.is_symlink
+    assert f.linked_to == '/opt/alertmanager_bot/releases/0.3.1'
+
+
+def test_service(host):
     s = host.service('alertmanager_bot')
 
     assert s.is_enabled
-    assert s.is_running
+    # assert s.is_running
+
+
+def test_user(host):
+    u = host.user('am-bot')
+
+    assert u.shell == '/usr/sbin/nologin'
+
+
+def test_group(host):
+    g = host.user('am-bot')
+
+    assert g.exists

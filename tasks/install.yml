@@ -10,7 +10,7 @@
   user:
     name: "{{ alertmanager_bot_user }}"
     system: true
-    shell: "/sbin/nologin"
+    shell: "/usr/sbin/nologin"
     group: "{{ alertmanager_bot_group }}"
     home: "{{ alertmanager_bot_root_dir }}"
     createhome: false
