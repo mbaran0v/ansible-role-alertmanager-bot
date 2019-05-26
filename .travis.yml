@@ -3,13 +3,14 @@
 sudo: required
 
 language: python
+python:
+  - 3.6
 
 services:
   - docker
 
 install:
-  - pip install docker-py
-  - pip install molecule
+  - pip install -r requirements.txt
 
 script:
   - molecule test --all

@@ -1,6 +1,7 @@
 
 debian_os = ['debian', 'ubuntu']
 rhel_os = ['redhat', 'centos']
+version = '0.4.0'
 
 
 def test_distribution(host):
@@ -15,7 +16,7 @@ def test_install_dir(host):
 
 
 def test_release_dir(host):
-    f = host.file('/opt/alertmanager_bot/releases/0.3.1')
+    f = host.file('/opt/alertmanager_bot/releases/' + version)
 
     assert f.exists
     assert f.is_directory
@@ -26,7 +27,7 @@ def test_release_symlink_dir(host):
 
     assert f.exists
     assert f.is_symlink
-    assert f.linked_to == '/opt/alertmanager_bot/releases/0.3.1'
+    assert f.linked_to == '/opt/alertmanager_bot/releases/' + version
 
 
 def test_service(host):

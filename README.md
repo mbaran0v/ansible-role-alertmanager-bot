@@ -19,7 +19,7 @@ Role Variables
 The variables that can be passed to this role and a brief description about them are as follows. (For all variables, take a look at defaults/main.yml)
 
 ```yaml
-alertmanager_bot_version: 0.3.1
+alertmanager_bot_version: 0.4.0
 ```
 version for installation
 
