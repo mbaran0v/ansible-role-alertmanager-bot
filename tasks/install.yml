@@ -47,6 +47,16 @@
   retries: 5
   delay: 2
 
+- name: copy message template
+  copy:
+    src: "{{ alertmanager_bot_default_template_file }}"
+    dest: "{{ deploy_helper.new_release_path }}"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart alertmanager bot
+
 - name: set permissions for executable file
   file:
     dest: "{{ deploy_helper.new_release_path }}/alertmanager_bot"
