@@ -50,7 +50,7 @@
 - name: copy message template
   copy:
     src: "{{ alertmanager_bot_default_template_file }}"
-    dest: "{{ deploy_helper.new_release_path }}"
+    dest: "{{ deploy_helper.new_release_path }}/default.tmpl"
     owner: root
     group: root
     mode: 0644
