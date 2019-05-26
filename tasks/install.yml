@@ -27,6 +27,7 @@
   deploy_helper:
     path: "{{ alertmanager_bot_root_dir }}"
     release: "{{ alertmanager_bot_version }}"
+    shared_path: "{{ alertmanager_bot_shared_dir }}"
     state: present
 
 - name: create release directory
