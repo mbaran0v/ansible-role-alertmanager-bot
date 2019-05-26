@@ -2,6 +2,7 @@
 debian_os = ['debian', 'ubuntu']
 rhel_os = ['redhat', 'centos']
 version = '0.4.0'
+root_dir = '/opt/alertmanager_bot'
 
 
 def test_distribution(host):
@@ -9,25 +10,25 @@ def test_distribution(host):
 
 
 def test_install_dir(host):
-    f = host.file('/opt/alertmanager_bot')
+    f = host.file(root_dir)
 
     assert f.exists
     assert f.is_directory
 
 
 def test_release_dir(host):
-    f = host.file('/opt/alertmanager_bot/releases/' + version)
+    f = host.file(root_dir + '/releases/' + version)
 
     assert f.exists
     assert f.is_directory
 
 
 def test_release_symlink_dir(host):
-    f = host.file('/opt/alertmanager_bot/current')
+    f = host.file(root_dir + '/current')
 
     assert f.exists
     assert f.is_symlink
-    assert f.linked_to == '/opt/alertmanager_bot/releases/' + version
+    assert f.linked_to == root_dir + '/releases/' + version
 
 
 def test_service(host):
@@ -47,3 +48,9 @@ def test_group(host):
     g = host.user('am-bot')
 
     assert g.exists
+
+
+def test_default_template(host):
+    f = host.file(root_dir + '/releases/' + version + '/default.tmpl')
+
+    assert f.exists
