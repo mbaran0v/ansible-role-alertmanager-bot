@@ -1,18 +1,24 @@
 [Unit]
 Description=Alertmanager Bot
 Documentation=https://github.com/metalmatze/alertmanager-bot
-After=network.target
+Wants=network-online.target
+After=network-online.target
+AssertFileIsExecutable={{ alertmanager_bot_release_dir }}/alertmanager_bot
 
 [Service]
 Type=simple
 User={{ alertmanager_bot_user }}
 Group={{ alertmanager_bot_group }}
 
+PrivateTmp=true
+ProtectHome=true
+PrivateDevices=true
+
 Environment=ALERTMANAGER_URL={{ alertmanager_bot_alertmanager_url }}
 Environment=LISTEN_ADDR={{ alertmanager_bot_listen_address }}
 Environment=TELEGRAM_TOKEN={{ alertmanager_bot_telegram_token }}
 Environment=STORE={{ alertmanager_bot_store }}
-Environment=TEMPLATE_PATHS={{ deploy_helper.current_path }}/default.tmpl
+Environment=TEMPLATE_PATHS={{ alertmanager_bot_shared_dir }}/default.tmpl
 {% if alertmanager_bot_store == "bolt" %}
 Environment=BOLT_PATH={{ alertmanager_bot_bolt_path }}
 {% endif %}
@@ -32,7 +38,7 @@ KillMode=process
 
 SyslogIdentifier=alertmanager_bot
 Restart=always
-RestartSec=60
+RestartSec=30
 
 [Install]
 WantedBy=multi-user.target
