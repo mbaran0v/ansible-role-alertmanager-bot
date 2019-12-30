@@ -5,8 +5,11 @@ alertmanager_bot_version: 0.4.0
 alertmanager_bot_download_url: "https://github.com/metalmatze/alertmanager-bot/releases/download/{{ alertmanager_bot_version }}/{{ alertmanager_bot_file_name }}"
 alertmanager_bot_file_name: "alertmanager-bot-{{ alertmanager_bot_version }}-linux-{{ go_arch_map[ansible_architecture] | default(ansible_architecture) }}"
 
+alertmanager_bot_force_install: true
+
 alertmanager_bot_user: am-bot
 alertmanager_bot_group: "{{ alertmanager_bot_user }}"
+alertmanager_bot_shell: /usr/sbin/nologin
 
 alertmanager_bot_root_dir: /opt/alertmanager_bot
 alertmanager_bot_release_dir: "{{ alertmanager_bot_root_dir }}/current"

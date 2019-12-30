@@ -51,6 +51,6 @@ def test_group(host):
 
 
 def test_default_template(host):
-    f = host.file(root_dir + '/releases/' + version + '/default.tmpl')
+    f = host.file(root_dir + '/shared/default.tmpl')
 
     assert f.exists
