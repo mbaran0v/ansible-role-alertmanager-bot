@@ -1,7 +1,7 @@
 
 debian_os = ['debian', 'ubuntu']
 rhel_os = ['redhat', 'centos']
-version = '0.4.0'
+version = '0.4.2'
 root_dir = '/opt/alertmanager_bot'
 
 
