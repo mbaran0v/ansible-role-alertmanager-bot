@@ -1,6 +1,6 @@
 ---
 
-alertmanager_bot_version: 0.4.0
+alertmanager_bot_version: 0.4.2
 
 alertmanager_bot_download_url: "https://github.com/metalmatze/alertmanager-bot/releases/download/{{ alertmanager_bot_version }}/{{ alertmanager_bot_file_name }}"
 alertmanager_bot_file_name: "alertmanager-bot-{{ alertmanager_bot_version }}-linux-{{ go_arch_map[ansible_architecture] | default(ansible_architecture) }}"
