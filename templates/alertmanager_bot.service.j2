@@ -36,7 +36,7 @@ ExecStart={{ alertmanager_bot_release_dir }}/alertmanager_bot \
 
 KillMode=process
 
-SyslogIdentifier=alertmanager_bot
+SyslogIdentifier={{ alertmanager_bot_service_name }}
 Restart=always
 RestartSec=30
 

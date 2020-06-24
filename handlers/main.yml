@@ -3,5 +3,5 @@
 - name: restart alertmanager bot
   systemd:
     daemon_reload: true
-    name: alertmanager_bot
+    name: "{{ alertmanager_bot_service_name }}"
     state: restarted

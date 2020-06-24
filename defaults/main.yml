@@ -24,6 +24,8 @@ alertmanager_bot_consul_url: "http://127.0.0.1:8500"
 alertmanager_bot_telegram_admins: []
 alertmanager_bot_telegram_token: "example"
 
+alertmanager_bot_service_name: "alertmanager_bot"
+
 alertmanager_bot_default_template_file: default.tmpl
 
 alertmanager_bot_env_vars: []

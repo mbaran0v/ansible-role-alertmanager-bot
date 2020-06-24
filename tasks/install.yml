@@ -83,7 +83,7 @@
 - name: create systemd service unit
   template:
     src: alertmanager_bot.service.j2
-    dest: /etc/systemd/system/alertmanager_bot.service
+    dest: "/etc/systemd/system/{{ alertmanager_bot_service_name }}.service"
     owner: root
     group: root
     mode: 0644
