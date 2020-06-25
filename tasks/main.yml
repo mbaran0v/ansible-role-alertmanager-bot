@@ -6,6 +6,6 @@
 
 - name: ensure alertmanager_bot service is started and enabled
   systemd:
-    name: alertmanager_bot
+    name: "{{ alertmanager_bot_service_name }}"
     state: started
     enabled: true
