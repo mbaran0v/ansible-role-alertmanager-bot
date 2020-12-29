@@ -47,7 +47,6 @@
   get_url:
     url: "{{ alertmanager_bot_download_url }}"
     dest: "{{ deploy_helper.new_release_path }}/alertmanager_bot"
-    remote_src: true
   register: _download_archive
   until: _download_archive is succeeded
   retries: 5
