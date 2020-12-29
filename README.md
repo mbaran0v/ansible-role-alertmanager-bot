@@ -7,6 +7,7 @@ Ansible role for [Alertmanager Bot](https://github.com/metalmatze/alertmanager-b
 * Ubuntu 16.04
 * CentOS 7
 * Debian 9
+* Debian 10
 
 Requirements
 ------------
